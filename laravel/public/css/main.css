@@ -56,15 +56,20 @@ a:link {
 .row{
     margin-top:5px;
     width:100%;
+    display:flex;
 }
 
-.half{
-    height:100%;
-    width:calc(50% - 10px);
+.block{
+    height:inherit;
     margin-left:5px;
     margin-right:5px;
     border: 1px solid #c9c9c9;
     border-radius: 5px;
+    min-height: 10px;
+}
+
+.half{
+    width:calc(50% - 10px);
 }
 
 .litre{

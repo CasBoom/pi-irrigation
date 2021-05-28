@@ -16,7 +16,7 @@
 @section('content')
     <main>
         <div class="row">
-            <div class='half'>
+            <div class='block half'>
                 <div class='timeblocks'>
                     @php
                         $days = ['Monday','Tueday','Wednesday','Thursday','Friday','Saturday','Sunday'];
@@ -41,9 +41,9 @@
                     <input type="submit" name="add timeblock">
                 </form>
             </div>
-            <div class='half'>
+            <div class='block half'>
                 <div class='logs'>
-                    @foreach (App\Timeblock::all() as $timeblock)
+                    @foreach (App\WateringLogs::all() as $log)
                     @endforeach
                 </div>
             </div>
