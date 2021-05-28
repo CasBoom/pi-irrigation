@@ -22,5 +22,8 @@ Route::get('/login', ['as' => 'login','uses'=> function () {
     return view('login');
 }]);
 
-Route::post('/login', 'UserController@login');
+//functions
 Route::get('/logout', 'UserController@logout');
+Route::post('/login', 'UserController@login');
+Route::post('/timeblock', 'TimeblocksController@insert');
+Route::get('/delete_timeblock/{id}', 'TimeblocksController@remove');
