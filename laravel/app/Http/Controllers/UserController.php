@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use App\User;
 
 class UserController extends Controller
@@ -13,10 +14,15 @@ class UserController extends Controller
     public function login(Request $request)
     {
         if($this->check($request)){
-            echo view('dashboard');
+            return redirect('/');
         }else{
             return redirect('/login');
         }
+    }
+
+    public function logout(Request $request){
+        Session::forget('key');
+        return redirect('/login');
     }
 
     public function check(Request $request)
