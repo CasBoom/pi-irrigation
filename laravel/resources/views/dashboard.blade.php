@@ -22,7 +22,7 @@
                     @php
                         $days = ['Monday','Tueday','Wednesday','Thursday','Friday','Saturday','Sunday'];
                     @endphp
-                    @foreach (App\Timeblock::all() as $timeblock)
+                    @foreach (App\Timeblock::orderBy('day')->orderBy('time')->get() as $timeblock)
                         <div class='timeblock'>{{ $days[$timeblock->day] }}, {{ $timeblock->time}}. Litre: {{ $timeblock->litre}} <a href="{{@url('/delete_timeblock').'/'.$timeblock->id}}" class='delete_tb'>x</a></div>
                     @endforeach
                 </div>
