@@ -11,6 +11,9 @@
     <a href="{{@url('/logout')}}">
         Logout
     </a>
+    <a href="{{@url('/profile')}}">
+        Profile
+    </a>
 </header>
 @endsection
 @section('content')

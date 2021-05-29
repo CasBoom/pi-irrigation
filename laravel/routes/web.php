@@ -18,6 +18,10 @@ Route::get('/', function () {
     return view('dashboard');
 })->middleware('auth');
 
+Route::get('/profile', function() {
+    return view('profile');
+})->middleware('auth');
+
 Route::get('/login', ['as' => 'login','uses'=> function () {
     return view('login');
 }]);
@@ -25,5 +29,6 @@ Route::get('/login', ['as' => 'login','uses'=> function () {
 //functions
 Route::get('/logout', 'UserController@logout');
 Route::post('/login', 'UserController@login');
+Route::post('/reset_password', 'UserController@resetPassword');
 Route::post('/timeblock', 'TimeblocksController@insert');
 Route::get('/delete_timeblock/{id}', 'TimeblocksController@remove');

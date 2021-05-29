@@ -16,6 +16,11 @@ header{
     text-decoration: none;
 }
 
+.reset_error{
+    padding:5px;
+    box-sizing: border-box;
+}
+
 header h1{
     display: inline-block;
     color:#FCFCFC;
@@ -24,6 +29,7 @@ header h1{
 header a{
     float:right;
     color:#050505;
+    margin-left:5px;
     background-color: #FCFCFC;
     border-radius: 3px;
     padding:20px;
