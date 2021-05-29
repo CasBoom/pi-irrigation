@@ -42,6 +42,6 @@ class addAccount extends Command
         $username = $this->argument('username');
         $password = $this->argument('password');
         DB::table('users')->insert(['name' => $username, 'email'=>$username."@gmail.com", 'password' => Hash::make($password)]);
-        echo "Create user: $username";
+        echo "Create user: $username\n";
     }
 }
