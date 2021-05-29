@@ -6,6 +6,7 @@ body{
     background-size: length;
     background-repeat: no-repeat;
 }
+
 header{
     width:100%;
     height:90px;
@@ -37,6 +38,22 @@ main{
     overflow:auto;
     min-height: 200px;
     width:calc(100% - 20px);
+}
+
+.success_0{
+    background-color:#faa9a9;
+}
+
+.success_1{
+    background-color:#a9faa9;
+}
+
+h2{
+    padding-left:5px;
+    width:100%;
+    border-bottom: 1px solid #c9c9c9;
+    box-sizing: border-box;
+    margin-bottom: 0;
 }
 
 a:link {
@@ -90,6 +107,8 @@ a:link {
 
 .add_timeblock{
     box-sizing: border-box;
+    border-top:1px solid #c9c9c9;
+    height:50px;
     padding:7px;
 }
 
@@ -101,4 +120,13 @@ a:link {
     padding:1px;
     box-sizing: border-box;
     color:#ffffff;
+}
+
+.logs{
+    overflow-y: scroll;
+    max-height: 230px;
+}
+.log_entry{
+    padding:3px;
+    box-sizing: border-box;
 }

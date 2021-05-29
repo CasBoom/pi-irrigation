@@ -17,7 +17,7 @@ class Timeblocks extends Migration
             $table->id();
             $table->integer('day');
             $table->string('time');
-            $table->integer('litre');
+            $table->double('litre');
         });
     }
 

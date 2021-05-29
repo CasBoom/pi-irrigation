@@ -15,6 +15,9 @@ class CreateWateringLogsTable extends Migration
     {
         Schema::create('watering_logs', function (Blueprint $table) {
             $table->id();
+            $table->string('time');
+            $table->double('litre');
+            $table->boolean('success');
             $table->timestamps();
         });
     }

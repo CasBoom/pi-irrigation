@@ -17,6 +17,7 @@
     <main>
         <div class="row">
             <div class='block half'>
+                <h2>Schedule</h2>
                 <div class='timeblocks'>
                     @php
                         $days = ['Monday','Tueday','Wednesday','Thursday','Friday','Saturday','Sunday'];
@@ -42,8 +43,10 @@
                 </form>
             </div>
             <div class='block half'>
+                <h2>Logs</h2>
                 <div class='logs'>
                     @foreach (App\WateringLogs::all() as $log)
+                        <div class='log_entry success_{{$log->success}}'>{{$log->time.', ' . $log->litre . ' Litre'}}</div>
                     @endforeach
                 </div>
             </div>
