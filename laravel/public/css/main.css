@@ -34,6 +34,7 @@ header a{
 main{
     margin:10px;
     background-color:#FCFCFC;
+    padding-top:5px;
     border-radius: 5px;
     overflow:auto;
     min-height: 200px;
@@ -49,7 +50,9 @@ main{
 }
 
 h2{
-    padding-left:5px;
+    margin-top:10px;
+    padding-left:10px;
+    height:40px;
     width:100%;
     border-bottom: 1px solid #c9c9c9;
     box-sizing: border-box;
@@ -61,7 +64,7 @@ a:link {
 }
 
 .login_form{
-    background-color: #FCFCFC;
+    background-color: #fcfcfc;
     border-radius: 15px;
     padding: 30px;
     box-sizing: border-box;
@@ -71,7 +74,7 @@ a:link {
 }
 
 .row{
-    margin-top:5px;
+    margin-bottom:5px;
     width:100%;
     display:flex;
 }
@@ -87,6 +90,20 @@ a:link {
 
 .half{
     width:calc(50% - 10px);
+}
+
+.data{
+    width:100%;
+}
+
+.data tr *{
+    width:calc(100%/8);
+    text-align: center;
+    border:1px solid #c9c9c9;
+}
+
+.full{
+    width:calc(100% - 10px);
 }
 
 .litre{
@@ -124,6 +141,7 @@ a:link {
 
 .logs{
     overflow-y: scroll;
+    height: calc(100% - 50px);
     max-height: 230px;
 }
 .log_entry{

@@ -51,5 +51,27 @@
                 </div>
             </div>
         </div>
+        <div class='row'>
+            <div class='block full'>
+                <h2>Data per day</h2>
+                <table class='data'>
+                    <tr>
+                        <th></th><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th><th>Saturday</th><th>Sunday</th>
+                    </tr>
+                    <tr>
+                        <th>Litre</th>
+                        @for($i = 0; $i<7; $i++)
+                            <td>{{app('App\Http\Controllers\TimeBlocksController')->litresPerDay($i)}}</td>
+                        @endfor
+                    </tr>
+                    <tr>
+                        <th>Frequency</th>
+                        @for($i = 0; $i<7; $i++)
+                            <td>{{app('App\Http\Controllers\TimeBlocksController')->entriesPerDay($i)}}</td>
+                        @endfor
+                    </tr>
+                </table>
+            </div>
+        </div>
     </main>
 @endsection

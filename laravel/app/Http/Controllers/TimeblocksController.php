@@ -23,4 +23,12 @@ class TimeblocksController extends Controller
         };
         return redirect('/');
     }
+
+    public function litresPerDay($day){
+        return Timeblock::where('day', $day)->sum('litre');
+    }
+
+    public function entriesPerDay($day){
+        return Timeblock::where('day', $day)->count('litre');
+    }
 }
