@@ -64,13 +64,13 @@
                     <tr>
                         <th>Litre</th>
                         @for($i = 0; $i<7; $i++)
-                            <td>{{app('App\Http\Controllers\TimeBlocksController')->litresPerDay($i)}}</td>
+                            <td>{{app('App\Http\Controllers\TimeblocksController')->litresPerDay($i)}}</td>
                         @endfor
                     </tr>
                     <tr>
                         <th>Frequency</th>
                         @for($i = 0; $i<7; $i++)
-                            <td>{{app('App\Http\Controllers\TimeBlocksController')->entriesPerDay($i)}}</td>
+                            <td>{{app('App\Http\Controllers\TimeblocksController')->entriesPerDay($i)}}</td>
                         @endfor
                     </tr>
                 </table>
