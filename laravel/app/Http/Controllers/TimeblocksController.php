@@ -10,7 +10,6 @@ class TimeblocksController extends Controller
     const MODEL = "App\Timeblocks";
 
     public function insert(Request $request){
-        // var_dump($request);
         if(isset($request->day,$request->hour,$request->litre)){
             TimeBlock::insert(['day'=>$request->day,'time'=>$request->hour,'litre'=>$request->litre]);
         }

@@ -118,6 +118,7 @@ a:link {
 }
 
 .timeblock{
+    margin-top:5px;
     border-bottom: 1px solid #c9c9c9;
     height:25px;
 }
