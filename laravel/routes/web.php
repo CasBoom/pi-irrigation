@@ -30,6 +30,6 @@ Route::get('/login', ['as' => 'login','uses'=> function () {
 //functions
 Route::get('/logout', 'UserController@logout');
 Route::post('/login', 'UserController@login');
-Route::post('/reset_password', 'UserController@resetPassword');
-Route::post('/timeblock', 'TimeblocksController@insert');
-Route::get('/delete_timeblock/{id}', 'TimeblocksController@remove');
+Route::post('/reset_password', 'UserController@resetPassword')->middleware('auth');
+Route::post('/timeblock', 'TimeblocksController@insert')->middleware('auth');
+Route::get('/delete_timeblock/{id}', 'TimeblocksController@remove')->middleware('auth');
