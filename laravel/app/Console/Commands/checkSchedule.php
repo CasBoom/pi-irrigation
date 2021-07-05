@@ -48,7 +48,7 @@ class checkSchedule extends Command
         //settings
         $duration = 10000000;
         $mlps = 0.0222222222222*1000;
-        $interval = 0.1;
+        $interval = 1;
 
         //output
         $result = [];
