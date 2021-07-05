@@ -47,7 +47,7 @@ class checkSchedule extends Command
 
         //settings
         $duration = 10000000;
-        $lps = 0.0222222222222;
+        $mlps = 0.0222222222222*1000;
         $interval = 0.1;
 
         //output
@@ -59,20 +59,20 @@ class checkSchedule extends Command
         $timeblock = Timeblock::select('litre')->where(['day' => $day, 'time'=>$time])->first();
 
         if($timeblock){
-            $litre = $timeblock->litre;
+            $ml = $timeblock->litre*1000;
 
             $this->setup(env("PUMP_PIN"));
 
-            echo "For this moment we have " . $litre . " litre planned\n";
+            echo "For this moment we have " . $ml . " litre planned\n";
             $timeout=0;
             $this->setGPIO(env("PUMP_PIN"), 1);
 
             //sleep for half  a second to let the motor spin up
             sleep(0.5);
-            while($litre > 0 && $duration*$interval > $timeout){
+            while($ml > 0 && $duration*$interval > $timeout){
                 sleep($interval);
-                $litre - $lps*$interval;
-                echo "$litre litres left\n";
+                $ml - $mlps*$interval;
+                echo "$ml millilitres left\n";
                 $timeout++;
             }
             $this->setGPIO(env("PUMP_PIN"), 0);
