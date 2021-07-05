@@ -90,6 +90,6 @@ class checkSchedule extends Command
 
     public function setGPIO($gpio, $bool){
         shell_exec("/usr/bin/sudo echo \"$bool\" > /sys/class/gpio/gpio$gpio/value");
-        echo("/usr/bin/sudo echo \"$bool\" > /sys/class/gpio/gpio$gpio/value");
+        echo("/usr/bin/sudo echo \"$bool\" > /sys/class/gpio/gpio$gpio/value\n");
     }
 }
