@@ -69,7 +69,7 @@ class checkSchedule extends Command
 
             //sleep for half  a second to let the motor spin up
             sleep(0.5);
-            while($litre > 0 && $duration*$interval < $timeout){
+            while($litre > 0 && $duration*$interval > $timeout){
                 sleep($interval);
                 $litre - $lps*$interval;
                 echo "$litre litres left\n";
