@@ -71,7 +71,7 @@ class checkSchedule extends Command
             sleep(0.5);
             while($ml > 0 && $duration*$interval > $timeout){
                 sleep($interval);
-                $ml - $mlps*$interval;
+                $ml -= $mlps*$interval;
                 echo "$ml millilitres left\n";
                 $timeout++;
             }
