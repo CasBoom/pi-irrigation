@@ -72,7 +72,7 @@ class checkSchedule extends Command
             while($litre > 0 && $duration*$interval < $timeout){
                 sleep($interval);
                 $litre - $lps*$interval;
-                // $timeout++;
+                $timeout++;
             }
             $this->setGPIO(env("PUMP_PIN"), 0);
         }else{
