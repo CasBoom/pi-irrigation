@@ -82,11 +82,11 @@ class checkSchedule extends Command
         return 0;
     }
     public function setup($gpio){
-        shell_exec("echo \"$gpio\" > /sys/class/gpio/export");
-        shell_exec("echo \"out\" > /sys/class/gpio/gpio$gpio/direction");
+        shell_exec("/usr/bin/sudo echo \"$gpio\" > /sys/class/gpio/export");
+        shell_exec("/usr/bin/sudo echo \"out\" > /sys/class/gpio/gpio$gpio/direction");
     }
 
     public function setGPIO($gpio, $bool){
-        shell_exec("echo \"$bool\" > /sys/class/gpio/gpio$gpio/value");
+        shell_exec("/usr/bin/sudo echo \"$bool\" > /sys/class/gpio/gpio$gpio/value");
     }
 }
