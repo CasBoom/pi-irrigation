@@ -46,7 +46,7 @@ class checkSchedule extends Command
         $time = date("H:i",strtotime($t));
 
         //settings
-        $duration = 10;
+        $duration = 10000000;
         $lps = 0.0222222222222;
         $interval = 0.1;
 
@@ -57,8 +57,9 @@ class checkSchedule extends Command
 
         echo"Today its $day\nThe time is $time\n";
         $timeblock = Timeblock::select('litre')->where(['day' => $day, 'time'=>$time])->first();
-        $litre = $timeblock->litre;
+
         if($timeblock){
+            $litre = $timeblock->litre;
 
             $this->setup(env("PUMP_PIN"));
 
