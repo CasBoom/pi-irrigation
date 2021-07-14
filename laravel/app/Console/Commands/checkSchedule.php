@@ -49,7 +49,13 @@ class checkSchedule extends Command
 
         //settings
         $duration = 1000;
-        $lps = 0.011111111111/1.1111111111111;
+        $lps = file_get_contents("../lps.txt");
+        if(!$lps){
+            //if the lps file doesnt exist, create and write 0
+            $f = fopen('../lps.txt', 'wb');
+            fputs($f, 0);
+            fclose($f);
+        }
         $interval = 1;
 
         //output
@@ -75,6 +81,7 @@ class checkSchedule extends Command
                 sleep($interval);
                 $litre -= $lps*$interval;
                 echo "$litre litre left\n";
+                $lps = file_get_contents("../lps.txt");
                 $timeout++;
             }
             $this->setGPIO(env("PUMP_PIN"), 0);
