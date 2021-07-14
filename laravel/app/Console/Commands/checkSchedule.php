@@ -43,6 +43,8 @@ class checkSchedule extends Command
         echo "running...\n";
         $t=date('Y-m-d H:i:s');
         $day = date("l",strtotime($t));
+        $dayNumber = ((int)date("N",strtotime($t))-1)%7;
+        echo "daynumber is $dayNumber\n";
         $time = date("H:i",strtotime($t));
 
         //settings
@@ -56,7 +58,7 @@ class checkSchedule extends Command
 
 
         echo"Today its $day\nThe time is $time\n";
-        $timeblock = Timeblock::select('litre')->where(['day' => $day, 'time'=>$time])->first();
+        $timeblock = Timeblock::select('litre')->where(['day' => $dayNumber, 'time'=>$time])->first();
 
         if($timeblock){
             $litre = $timeblock->litre;
