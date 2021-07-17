@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use App\Timeblock;
+use App\WateringLogs as Logs;
 
 class checkSchedule extends Command
 {
@@ -48,7 +49,7 @@ class checkSchedule extends Command
         $time = date("H:i",strtotime($t));
 
         //settings
-        $duration = 1000;
+        $duration = 60;
         $lps = file_get_contents("../lps.txt");
         if(!$lps){
             //if the lps file doesnt exist, create and write 0
@@ -57,11 +58,6 @@ class checkSchedule extends Command
             fclose($f);
         }
         $interval = 1;
-
-        //output
-        $result = [];
-        $result_code = 0;
-
 
         echo"Today its $day\nThe time is $time\n";
         $timeblock = Timeblock::select('litre')->where(['day' => $dayNumber, 'time'=>$time])->first();
@@ -88,6 +84,10 @@ class checkSchedule extends Command
                 $timeout++;
             }
             $this->setGPIO(env("PUMP_PIN"), 0);
+            Logs::insert(
+                ["time" => $t,
+                "litre" => $timeblock->litre - $litre,
+                "success" => $litre<0.1]);
         }else{
             echo "There are no timeblocks\n";
         }

@@ -49,7 +49,7 @@
                 <h2>Logs</h2>
                 <div class='logs'>
                     @foreach (App\WateringLogs::all() as $log)
-                        <div class='log_entry success_{{$log->success}}'>{{$log->time.', ' . $log->litre . ' Litre'}}</div>
+                        <div class='log_entry success_{{$log->success}}'>{{'[ '.$log->time.' ] - Litre: ' . $log->litre}}</div>
                     @endforeach
                 </div>
             </div>
