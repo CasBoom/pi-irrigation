@@ -2,17 +2,18 @@ from gpiozero import Button
 import time
 
 # setup
-pin = 24
-input = Button(2)
+pin = 18
+input = Button(pin, False)
 
 # Q [L/s] = fpulse/(5880).
 def findLPS(input):
     count = 0
-    t_end = time.time() + 0.1
+    interval = 0.1
+    t_end = time.time() + interval
     while(time.time()<t_end):
-        if(input.when_pressed):
+        if(input.value):
             count+=1
-    return count/588
+    return count/5880*interval
 
 def storeLPS(lps):
     f = open("lps.txt", "w")
@@ -21,4 +22,6 @@ def storeLPS(lps):
 
 
 while 1:
-    storeLPS(findLPS(input))
+    lps = findLPS(input)
+    print(lps)
+    storeLPS(lps)
