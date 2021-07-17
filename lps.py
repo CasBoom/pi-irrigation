@@ -16,10 +16,9 @@ def findLPS(input):
 
 def storeLPS(lps):
     f = open("lps.txt", "w")
-    f.write(lps)
+    f.write(str(lps))
     f.close()
 
 
 while 1:
     storeLPS(findLPS(input))
-    sleep(0.1)
