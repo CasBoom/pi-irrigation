@@ -41,14 +41,14 @@
                         <option value='6'>Sunday</option>
                     </select>
                     <input type='time' name='hour'>
-                    <label for='name'>Litre: </label><input type='number' name='litre' class='litre' min="0" max="5" step='0.1'>
+                    <label for='name'>Litre: </label><input type='number' name='litre' class='litre' min="0" max="5" step='0.01'>
                     <input type="submit" name="add timeblock">
                 </form>
             </div>
             <div class='block half'>
                 <h2>Logs</h2>
                 <div class='logs'>
-                    @foreach (App\WateringLogs::all() as $log)
+                    @foreach (App\WateringLogs::orderBy('id', 'desc')->get() as $log)
                         <div class='log_entry success_{{$log->success}}'>{{'[ '.$log->time.' ] - Litre: ' . $log->litre}}</div>
                     @endforeach
                 </div>
