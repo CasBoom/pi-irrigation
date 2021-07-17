@@ -81,7 +81,10 @@ class checkSchedule extends Command
                 sleep($interval);
                 $litre -= $lps*$interval;
                 echo "$litre litre left\n";
-                $lps = file_get_contents("../lps.txt");
+                $new_lps = file_get_contents("../lps.txt");
+                if(is_numeric($new_lps)){
+                    $lps = $new_lps;
+                }
                 $timeout++;
             }
             $this->setGPIO(env("PUMP_PIN"), 0);
