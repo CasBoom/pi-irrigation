@@ -49,7 +49,7 @@
                 <h2>Logs</h2>
                 <div class='logs'>
                     @foreach (App\WateringLogs::orderBy('id', 'desc')->get() as $log)
-                        <div class='log_entry success_{{$log->success}}'>{{'[ '.$log->time.' ] - Litre: ' . $log->litre}}</div>
+                        <div class='log_entry success_{{$log->success}}'>{{'[ '.$log->time.' ] - Litre: ' . round($log->litre, 3)}}</div>
                     @endforeach
                 </div>
             </div>
