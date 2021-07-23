@@ -23,7 +23,7 @@
                 {{htmlspecialchars($_GET['error'])}}
             </p>
         @endif
-        <label for="name">Name: </label>
+        <label for="name">Username: </label>
         <input type="text" name="name">
     </p>
     <p>
@@ -35,7 +35,7 @@
         <input type="password" name="new_password">
     </p>
     <p>
-        <label for="confirm_password">Confirm password: </label>
+        <label for="confirm_password">Confirm new password: </label>
         <input type="password" name="confirm">
     </p>
     <input type="submit" name="Submit">
