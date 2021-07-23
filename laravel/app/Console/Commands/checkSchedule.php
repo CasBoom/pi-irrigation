@@ -45,7 +45,6 @@ class checkSchedule extends Command
         $t=date('Y-m-d H:i:s');
         $day = date("l",strtotime($t));
         $dayNumber = ((int)date("N",strtotime($t))-1)%7;
-        echo "daynumber is $dayNumber\n";
         $time = date("H:i",strtotime($t));
 
         //settings
@@ -95,14 +94,18 @@ class checkSchedule extends Command
         return 0;
     }
     public function setup($gpio){
-        shell_exec("/usr/bin/sudo echo \"$gpio\" > /sys/class/gpio/export");
-        echo "/usr/bin/sudo echo \"$gpio\" > /sys/class/gpio/export\n";
-        shell_exec("/usr/bin/sudo echo \"out\" > /sys/class/gpio/gpio$gpio/direction");
-        echo "/usr/bin/sudo echo \"out\" > /sys/class/gpio/gpio$gpio/direction";
+        if(!env('APP_DEBUG')){
+            shell_exec("/usr/bin/sudo echo \"$gpio\" > /sys/class/gpio/export");
+            echo "/usr/bin/sudo echo \"$gpio\" > /sys/class/gpio/export\n";
+            shell_exec("/usr/bin/sudo echo \"out\" > /sys/class/gpio/gpio$gpio/direction");
+            echo "/usr/bin/sudo echo \"out\" > /sys/class/gpio/gpio$gpio/direction";
+        }
     }
 
     public function setGPIO($gpio, $bool){
-        shell_exec("/usr/bin/sudo echo \"$bool\" > /sys/class/gpio/gpio$gpio/value");
-        echo("/usr/bin/sudo echo \"$bool\" > /sys/class/gpio/gpio$gpio/value\n");
+        if(!env('APP_DEBUG')){
+            shell_exec("/usr/bin/sudo echo \"$bool\" > /sys/class/gpio/gpio$gpio/value");
+            echo("/usr/bin/sudo echo \"$bool\" > /sys/class/gpio/gpio$gpio/value\n");
+        }
     }
 }
